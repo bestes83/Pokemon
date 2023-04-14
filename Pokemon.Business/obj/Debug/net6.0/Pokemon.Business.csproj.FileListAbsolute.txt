@@ -1,0 +1,12 @@
+D:\Brian\Code\_Playground\PokeDex\Pokemon.React\Pokemon.Business\bin\Debug\net6.0\Pokemon.Business.deps.json
+D:\Brian\Code\_Playground\PokeDex\Pokemon.React\Pokemon.Business\bin\Debug\net6.0\Pokemon.Business.dll
+D:\Brian\Code\_Playground\PokeDex\Pokemon.React\Pokemon.Business\bin\Debug\net6.0\Pokemon.Business.pdb
+D:\Brian\Code\_Playground\PokeDex\Pokemon.React\Pokemon.Business\obj\Debug\net6.0\Pokemon.Business.csproj.AssemblyReference.cache
+D:\Brian\Code\_Playground\PokeDex\Pokemon.React\Pokemon.Business\obj\Debug\net6.0\Pokemon.Business.GeneratedMSBuildEditorConfig.editorconfig
+D:\Brian\Code\_Playground\PokeDex\Pokemon.React\Pokemon.Business\obj\Debug\net6.0\Pokemon.Business.AssemblyInfoInputs.cache
+D:\Brian\Code\_Playground\PokeDex\Pokemon.React\Pokemon.Business\obj\Debug\net6.0\Pokemon.Business.AssemblyInfo.cs
+D:\Brian\Code\_Playground\PokeDex\Pokemon.React\Pokemon.Business\obj\Debug\net6.0\Pokemon.Business.csproj.CoreCompileInputs.cache
+D:\Brian\Code\_Playground\PokeDex\Pokemon.React\Pokemon.Business\obj\Debug\net6.0\Pokemon.Business.dll
+D:\Brian\Code\_Playground\PokeDex\Pokemon.React\Pokemon.Business\obj\Debug\net6.0\refint\Pokemon.Business.dll
+D:\Brian\Code\_Playground\PokeDex\Pokemon.React\Pokemon.Business\obj\Debug\net6.0\Pokemon.Business.pdb
+D:\Brian\Code\_Playground\PokeDex\Pokemon.React\Pokemon.Business\obj\Debug\net6.0\ref\Pokemon.Business.dll
