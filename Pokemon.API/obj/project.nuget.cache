@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3ROw1vsDG3xZoWRAqXlOyMAJqyQ/2y/Gk7JguijfU2a5V1VWHCLQFYUIhX1sxibRjqJdcZ8kw/YOliMjPHp/5g==",
+  "dgSpecHash": "xs1lBzexAK5qTybCQBC8ezfSGhl3currDwK3+WmaEmgEHh5fhmImx6g3CuSJizDHEdRIZqwRi2+I//v3cemWVQ==",
   "success": true,
-  "projectFilePath": "D:\\Brian\\Code\\_Playground\\PokeDex\\Pokemon.React\\Pokemon.API\\Pokemon.API.csproj",
+  "projectFilePath": "D:\\Brian\\Code\\_Playground\\PokeDex\\Pokemon.API\\Pokemon.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bestes\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\bestes\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",

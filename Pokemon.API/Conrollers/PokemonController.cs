@@ -29,7 +29,7 @@ namespace Pokemon.API.Conrollers
                 var url = new ApiResource<PokeApiNet.Pokemon>() { Url = x.Url };
                 var pokemon = pokeClient.GetResourceAsync<PokeApiNet.Pokemon>(url).Result;
                 var species = pokeClient.GetResourceAsync<PokemonSpecies>(pokemon.Id).Result;
-                return new PokemonDTO(pokemon, null, species, null, null) { IsDetail = true };
+                return new PokemonDTO(pokemon, null, species:species, null, null) { IsDetail = true };
             }).ToList();
 
             return pagedPokemon;
@@ -58,6 +58,19 @@ namespace Pokemon.API.Conrollers
             weaknesses = weaknesses.Where(x => strengths.All(y => y.Id != x.Id)).ToList();
             //var pokemonTypes = pokeClient.GetResourceAsync<Type>(pokemon.Types.First().Type);
             
+            
+
+            var pokemonDTO = new PokemonDTO(pokemon, genuses, species, weaknesses, strengths);// { Evolution = evolution };
+
+            return pokemonDTO;
+        }
+
+        [HttpGet("GetEvolutionChain/{id}")]
+        public async Task<EvolutionDTO> GetEvolutionChain(int? id)
+        {
+            //var pokemon = await pokeClient.GetResourceAsync<PokeApiNet.Pokemon>(id.GetValueOrDefault());
+            var species = await pokeClient.GetResourceAsync<PokemonSpecies>(id.GetValueOrDefault());
+
             var evolutionChain = await pokeClient.GetResourceAsync<EvolutionChain>(species.EvolutionChain);
             var stage1Species = await pokeClient.GetResourceAsync<PokemonSpecies>(evolutionChain.Chain.Species);
             var stage1Pokemon = await pokeClient.GetResourceAsync<PokeApiNet.Pokemon>(stage1Species.Id);
@@ -87,17 +100,14 @@ namespace Pokemon.API.Conrollers
                 }
             }
 
-            var x = species.PokedexNumbers;
             var evolution = new EvolutionDTO()
             {
                 Stage1 = new PokemonDTO(stage1Pokemon, null, stage1Species, null, null),
-                Stage2 = new PokemonDTO(stage2Pokemon, null, stage2Species, null, null),
-                Stage3 = new PokemonDTO(stage3Pokemon, null, stage3Species, null, null)
+                Stage2 = stage2Pokemon == null ? null : new PokemonDTO(stage2Pokemon, null, stage2Species, null, null),
+                Stage3 = stage3Pokemon == null ? null : new PokemonDTO(stage3Pokemon, null, stage3Species, null, null)
             };
 
-            var pokemonDTO = new PokemonDTO(pokemon, genuses, species, weaknesses, strengths) { Evolution = evolution };
-
-            return pokemonDTO;
+            return evolution;
         }
     }
 }

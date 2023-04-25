@@ -17,8 +17,8 @@ namespace Pokemon.Business.DTO
         //public int StageID { get; set; }
         //public PokemonDTO Pokemon { get; set; }
 
-        public PokemonDTO Stage1 { get; set; }
-        public PokemonDTO Stage2 { get; set; }
-        public PokemonDTO Stage3 { get; set; }
+        public PokemonDTO? Stage1 { get; set; }
+        public PokemonDTO? Stage2 { get; set; }
+        public PokemonDTO? Stage3 { get; set; }
     }
 }

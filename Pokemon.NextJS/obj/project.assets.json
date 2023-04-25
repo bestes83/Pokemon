@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Brian\\Code\\_Playground\\PokeDex\\Pokemon.React\\Pokemon.NextJS\\Pokemon.NextJS.csproj",
+      "projectUniqueName": "D:\\Brian\\Code\\_Playground\\PokeDex\\Pokemon.NextJS\\Pokemon.NextJS.csproj",
       "projectName": "Pokemon.NextJS",
-      "projectPath": "D:\\Brian\\Code\\_Playground\\PokeDex\\Pokemon.React\\Pokemon.NextJS\\Pokemon.NextJS.csproj",
+      "projectPath": "D:\\Brian\\Code\\_Playground\\PokeDex\\Pokemon.NextJS\\Pokemon.NextJS.csproj",
       "packagesPath": "C:\\Users\\bestes\\.nuget\\packages\\",
-      "outputPath": "D:\\Brian\\Code\\_Playground\\PokeDex\\Pokemon.React\\Pokemon.NextJS\\obj\\",
+      "outputPath": "D:\\Brian\\Code\\_Playground\\PokeDex\\Pokemon.NextJS\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
