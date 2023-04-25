@@ -9,5 +9,4 @@ export interface PokemonModel{
     genus:string;
     abilities:string[];
     weaknesses:string[];
-    evolution: any;
 }

@@ -6,6 +6,8 @@ import { useEffect, useState } from 'react';
 import { Config } from '../config'
 import { PokemonModel } from '../models/pokemonModel';
 import Pokemon from '../components/pokemon';
+import { EvolutionModel } from '../models/EvolutionModel';
+
 
 const PokemonDetail = () => {
     //const router = useRouter();
@@ -21,10 +23,17 @@ const PokemonDetail = () => {
         evolution:{}
     }
 
+    let defaultEvolution = {
+        stage1: defaultPokemon,
+        stage2: defaultPokemon,
+        stage3: defaultPokemon,
+    }
+
     const {id} = useParams();
     const imageUrl = Config.PokemonImageUrl + id?.toString().padStart(3, '00') + ".png"
     const [pokemon, setPokemon] = useState<PokemonModel>(defaultPokemon);
     const [isLoaded, setIsLoaded] = useState<boolean>(false);
+    const [evolution, setEvolution] = useState<EvolutionModel>(defaultEvolution);
 
     const loadPokemonData = (id:string) => {
         setIsLoaded(false);
@@ -32,6 +41,11 @@ const PokemonDetail = () => {
             setPokemon(response.data as PokemonModel);
             setIsLoaded(true);
             console.log(response.data.evolution);
+        }).catch((err) => console.log(err));
+
+        axios.get(Config.PokemonApi + "/Pokemon/GetEvolutionChain/" + id).then((response) => {
+            setEvolution(response.data as EvolutionModel)
+            setIsLoaded(true);
         }).catch((err) => console.log(err));
     }
 
@@ -45,23 +59,20 @@ const PokemonDetail = () => {
     return (
         <>
         {!isLoaded && 
-            <Container>
-                <Row>
-                    <Col lg="5"></Col>
-                    <Col>
-                        <div>Loading Data....</div>
-                    </Col>
-                    <Col lg="5"></Col>
-                </Row>
-            </Container>}
+            <Loading />}
         {isLoaded && 
         <Container>
             <Row>
-                <Card className="pokemon-detail-card">
+                <Card>
                     <Container>
                         <Row>
                             <Col>
-                                <div className="pokemon-detail-image">
+                                <h1>#&nbsp;{pokemon.id}&nbsp;{pokemon.name}</h1>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col>
+                                <div>
                                     <img src={imageUrl} style={{width:"500px", height:"500px"}}/>
                                 </div>
                             </Col>
@@ -134,28 +145,19 @@ const PokemonDetail = () => {
             <Row>
                 <Col lg="3"></Col>
                 <Col lg="2">
-                    <Link to={"/pokemondetail/" + pokemon.evolution.stage1.id}>
-                        <Pokemon pokemon={pokemon.evolution.stage1}/>
+                    <Link to={"/pokemondetail/" + evolution.stage1.id}>
+                        <Pokemon pokemon={evolution.stage1}/>
                     </Link>
-                    {/* <a href="#" onClick={() => loadPokemonData(pokemon.evolution.stage1.id as string)}>
-                        <Pokemon pokemon={pokemon.evolution.stage1}></Pokemon>
-                    </a> */}
                 </Col>
                 <Col lg="2">
-                <Link to={"/pokemondetail/" + pokemon.evolution.stage2.id}>
-                        <Pokemon pokemon={pokemon.evolution.stage2}/>
+                    <Link to={"/pokemondetail/" + evolution.stage2.id}>
+                        <Pokemon pokemon={evolution.stage2}/>
                     </Link>
-                    {/* <a href="#" onClick={() => loadPokemonData(pokemon.evolution.stage2.id as string)}>
-                        <Pokemon pokemon={pokemon.evolution.stage2}></Pokemon>
-                    </a> */}
                 </Col>
                 <Col lg="2">
-                <Link to={"/pokemondetail/" + pokemon.evolution.stage3.id}>
-                        <Pokemon pokemon={pokemon.evolution.stage3}/>
+                    <Link to={"/pokemondetail/" + evolution.stage3.id}>
+                        <Pokemon pokemon={evolution.stage3}/>
                     </Link>
-                    {/* <a href="#" onClick={() => loadPokemonData(pokemon.evolution.stage3.id as string)}>
-                        <Pokemon pokemon={pokemon.evolution.stage3}></Pokemon>
-                    </a> */}
                 </Col>
                 <Col lg="3"></Col>
             </Row>
