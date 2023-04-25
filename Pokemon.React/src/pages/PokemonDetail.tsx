@@ -7,6 +7,7 @@ import { Config } from '../config'
 import { PokemonModel } from '../models/pokemonModel';
 import Pokemon from '../components/pokemon';
 import { EvolutionModel } from '../models/EvolutionModel';
+import Loading from '../components/Loading';
 
 
 const PokemonDetail = () => {
@@ -54,7 +55,7 @@ const PokemonDetail = () => {
     }, [id])
 
     const typeElements = pokemon?.types.map((item, index) => <span key={index} className="type">{item}</span>);
-    const weaknessElements = pokemon?.weaknesses.map((item, index) => <li key={index} className="type">{item}</li>)
+    const weaknessElements = pokemon?.weaknesses.map((item, index) => <li key={index}>{item}</li>)
     const abilityElements = pokemon?.abilities.map((item, index) => <li key={index}>{item}</li>)
     return (
         <>
@@ -63,23 +64,21 @@ const PokemonDetail = () => {
         {isLoaded && 
         <Container>
             <Row>
-                <Card>
+                <Card className="pokemon-detail-card">
                     <Container>
                         <Row>
                             <Col>
-                                <h1>#&nbsp;{pokemon.id}&nbsp;{pokemon.name}</h1>
+                                <h1>#{pokemon.id}&nbsp;{pokemon.name}</h1>
                             </Col>
                         </Row>
                         <Row>
                             <Col>
-                                <div>
-                                    <img src={imageUrl} style={{width:"500px", height:"500px"}}/>
-                                </div>
+                                <img src={imageUrl} className="pokemon-detail-image"/>
                             </Col>
                             <Col>
                                 <Container>
                                     <Row>
-                                        <Table>
+                                        <Table bordered>
                                             <tbody>
                                                 <tr>
                                                     <td>

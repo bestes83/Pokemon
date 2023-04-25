@@ -23,7 +23,7 @@ const Pokemon = (props: PokemonProps) =>{
         <Card className="pokemon-card">
             <Card.Header>#{pokemon?.id}&nbsp;{pokemon?.name}</Card.Header>
             <Card.Body>
-                <img src={imageUrl} style={{height: 125, width: 125}}/>
+                <img src={imageUrl} />
             </Card.Body>
         </Card>
     )

@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react'
 import { Config } from '../config'
 import Pokemon from '../components/pokemon'
 import { PokemonModel } from '../models/pokemonModel'
+import Loading from '../components/Loading';
 
 const PokemonList = () => {
   const [pokemonList, setPokemonList] = useState<PokemonModel[]>()
@@ -21,7 +22,7 @@ const PokemonList = () => {
 
   const elements = pokemonList?.map((item, index) => {
     return (
-      <Col key={index} lg="2">
+      <Col key={index} xs="12" md="4" lg="2">
         <Link to={"/pokemondetail/" + item.id}>
           <Pokemon pokemon={item}/>
         </Link>
@@ -49,29 +50,22 @@ const PokemonList = () => {
   return (
     <>
     { !isLoaded && 
-      <Container>
-        <Row>
-          <Col lg="5"></Col>
-          <Col>Loading Data......</Col>
-          <Col lg="5"></Col>
-        </Row>
-      </Container>
-    }
+      <Loading />}
     { isLoaded && 
       <Container fluid>
           <Row>
-            <Col lg="1" xlg="1"></Col>
+            <Col xs="1"></Col>
             <Col>
-              <Container fluid>
+              <Container>
                 <Row>
                   {elements}
                 </Row>
               </Container>
             </Col>
-            <Col lg="1" xlg="1"></Col>
+            <Col xs="1"></Col>
           </Row>
           <Row>
-            <Col lg="5"></Col>
+            <Col xs="2" md="4" lg="5"></Col>
             <Col>
               <Pagination>
                 <Pagination.Prev onClick={() => pageHandler(activePage - 1)}></Pagination.Prev>
@@ -79,7 +73,7 @@ const PokemonList = () => {
                 <Pagination.Next onClick={() => pageHandler(activePage + 1)}></Pagination.Next>
               </Pagination>
             </Col>
-            <Col lg="5"></Col>
+            <Col xs="2" md="4" lg="5"></Col>
           </Row>
       </Container> }
     </>
